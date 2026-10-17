@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anna & Paul Sommer-Reel</title>
+<style>
+:root{
+  --fill:#FFFFFF;--fill-secondary:#FAFAFC;--fill-tertiary:#F5F5F7;--fill-quaternary:#E8E8ED;--separator:#D2D2D7;
+  --text:#1D1D1F;--text-secondary:#6E6E73;--text-tertiary:#86868B;
+  --link:#0066CC;--accent:#0071E3;--green:#03A10E;
+  --font-display:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-text:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.4,0,.6,1);--ease-out:cubic-bezier(0,0,.5,1);--spring:cubic-bezier(.34,1.56,.64,1);
+  --dur:320ms;--dur-hover:100ms;
+  --radius-pill:980px;--radius-card:12px;--radius-box:8px;
+  --section-pad:160px;--section-pad-quiet:112px;--content-max:980px;--gutter:24px;
+}
+@media (max-width:1068px){:root{--section-pad:128px;--section-pad-quiet:96px}}
+@media (max-width:734px){:root{--section-pad:96px;--section-pad-quiet:56px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fill:#000;--fill-secondary:#161617;--fill-tertiary:#1D1D1F;--fill-quaternary:#333336;--separator:#424245;
+  --text:#F5F5F7;--text-secondary:#86868B;--text-tertiary:#6E6E73;--link:#2997FF;}}
+:root[data-theme="dark"]{
+  --fill:#000;--fill-secondary:#161617;--fill-tertiary:#1D1D1F;--fill-quaternary:#333336;--separator:#424245;
+  --text:#F5F5F7;--text-secondary:#86868B;--text-tertiary:#6E6E73;--link:#2997FF;}
+*{box-sizing:border-box}
+html{font-size:106.25%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-text);color:var(--text);background:var(--fill);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--link);text-decoration:none}
+.t-56{font:600 56px/60px var(--font-display);letter-spacing:-.005em}
+.t-48{font:600 48px/52px var(--font-display);letter-spacing:-.002em}
+.t-40{font:600 40px/44px var(--font-display)}
+.t-32{font:600 32px/36px var(--font-display);letter-spacing:.002em}
+.t-28{font:400 28px/32px var(--font-display);letter-spacing:.007em}
+.t-24{font:400 24px/28px var(--font-display);letter-spacing:.009em}
+.t-21{font:400 21px/25px var(--font-display);letter-spacing:.011em}
+.t-19{font:400 19px/23px var(--font-display);letter-spacing:.012em}
+.t-17{font:400 17px/21px var(--font-text);letter-spacing:-.022em}
+.t-14{font:400 14px/20px var(--font-text);letter-spacing:-.016em}
+.t-12{font:400 12px/16px var(--font-text);letter-spacing:-.01em}
+@media (max-width:1068px){.t-56{font-size:48px;line-height:52px}.t-48{font-size:40px;line-height:44px}.t-28{font-size:24px;line-height:28px}.t-21{font-size:19px;line-height:23px}}
+@media (max-width:734px){.t-56,.t-48{font-size:32px;line-height:36px}.t-40,.t-32{font-size:28px;line-height:32px}.t-28,.t-24{font-size:19px;line-height:23px}.t-19{font-size:14px;line-height:18px}}
+
+/* Leiste */
+.nav{position:fixed;top:0;left:0;right:0;height:44px;z-index:50;background:color-mix(in srgb,var(--fill) 72%,transparent);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid color-mix(in srgb,var(--separator) 50%,transparent)}
+.nav-in{max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);height:44px;display:flex;align-items:center;gap:28px}
+.nav .brand{font:600 14px/20px var(--font-display);color:var(--text);letter-spacing:-.01em}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav li a{font:400 12px/16px var(--font-text);color:var(--text);opacity:.8;transition:opacity var(--dur-hover) linear}
+.nav li a:hover{opacity:1}
+@media (max-width:734px){.nav ul{display:none}}
+.theme{margin-left:auto;width:44px;height:44px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:var(--text)}
+@media (max-width:734px){.theme{margin-left:auto}}
+.nav ul + .theme{margin-left:0}
+
+/* Abschnitte */
+.wrap{max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter)}
+section{padding:var(--section-pad) 0}
+section.quiet{padding:var(--section-pad-quiet) 0}
+.label{font:600 12px/16px var(--font-text);letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary);margin:0 0 12px}
+.lead{color:var(--text-secondary);margin:.8em 0 0;max-width:640px}
+h1,h2,h3{margin:0}
+h2 + .lead{margin-top:.4em}
+
+/* Held */
+.hero{padding:calc(44px + 64px) 0 0;text-align:center}
+.hero .t-56{max-width:720px;margin:0 auto}
+.hero .lead{margin:.6em auto 0}
+.hero-img{margin:56px auto 0;width:min(420px,100%);aspect-ratio:9/16;border-radius:var(--radius-card);overflow:hidden;background:var(--fill-tertiary);transform:translateY(24px);opacity:0;animation:rise 720ms var(--ease-out) 160ms forwards}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:settle 1800ms var(--ease-out) forwards}
+@keyframes rise{to{transform:none;opacity:1}}
+@keyframes settle{to{transform:scale(1)}}
+.hero-caption{margin:16px auto 0;color:var(--text-tertiary)}
+
+/* Kennzahlen */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.fact{background:var(--fill-tertiary);border-radius:var(--radius-card);padding:24px}
+.fact b{display:block;font:600 32px/36px var(--font-display);letter-spacing:.002em}
+.fact span{color:var(--text-secondary)}
+@media (max-width:734px){.facts{grid-template-columns:1fr 1fr}}
+
+/* Segmentschalter */
+.seg{display:inline-flex;position:relative;background:var(--fill-quaternary);border-radius:var(--radius-pill);padding:3px;height:44px;isolation:isolate}
+.seg button{position:relative;z-index:1;border:0;background:none;padding:0 20px;height:38px;border-radius:var(--radius-pill);font:400 14px/20px var(--font-text);color:var(--text);cursor:pointer;transition:color var(--dur-hover) linear}
+.seg .thumb{position:absolute;top:3px;left:3px;height:38px;border-radius:var(--radius-pill);background:var(--fill);box-shadow:0 1px 2px rgba(0,0,0,.08);transition:transform 420ms var(--spring),width 420ms var(--spring)}
+:root[data-theme="dark"] .seg .thumb,:root:not([data-theme="light"]) .seg .thumb{box-shadow:none}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .seg .thumb{box-shadow:0 1px 2px rgba(0,0,0,.08)}}
+
+@media (max-width:734px){.seg{width:100%}.seg button{flex:1;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tray{max-width:calc(100vw - 32px);padding-left:14px;gap:10px}.tray .btn{padding:0 14px}}
+
+/* Storyline */
+.story-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.story-note{color:var(--text-secondary);margin:16px 0 0;min-height:44px;transition:opacity var(--dur) var(--ease)}
+.scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+@media (max-width:734px){.scenes{grid-template-columns:1fr 1fr}}
+.scene{background:var(--fill-tertiary);border-radius:var(--radius-card);overflow:hidden;cursor:pointer;transition:transform 480ms var(--spring),background var(--dur) var(--ease);will-change:transform}
+.scene:hover{transform:translateY(-4px)}
+.scene:active{transform:scale(.98)}
+.scene .pic{aspect-ratio:9/16;overflow:hidden;background:var(--fill-quaternary)}
+.scene .pic img{width:100%;height:100%;object-fit:cover;transition:transform 900ms var(--ease-out)}
+.scene:hover .pic img{transform:scale(1.04)}
+.scene .meta{padding:14px 16px 16px}
+.scene .num{font:600 12px/16px var(--font-text);color:var(--text-tertiary);letter-spacing:.06em;display:inline-block;transition:transform 420ms var(--spring)}
+.scene .num.bump{transform:scale(1.35)}
+.scene h3{font:600 17px/21px var(--font-display);letter-spacing:-.022em;margin:4px 0 2px}
+.scene p{margin:0;color:var(--text-secondary);font:400 14px/20px var(--font-text)}
+.scene.moving{animation:swap 560ms var(--spring)}
+@keyframes swap{0%{transform:scale(.96);opacity:.4}100%{transform:none;opacity:1}}
+
+/* Bilder, Kapitel */
+.chapter{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.chapter + .chapter{margin-top:var(--section-pad-quiet)}
+.chapter:nth-child(even) .text{order:2}
+@media (max-width:734px){.chapter{grid-template-columns:1fr;gap:24px}.chapter:nth-child(even) .text{order:0}}
+.chapter .text{position:sticky;top:88px}
+.chapter .text h3{margin-top:4px}
+.chapter .text p{color:var(--text-secondary);margin:.8em 0 0}
+.chapter .cam{margin-top:24px;padding-top:16px;border-top:1px solid var(--separator);color:var(--text-tertiary)}
+.chapter .cam b{color:var(--text);font-weight:600}
+.variants{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.variant{position:relative;border-radius:var(--radius-card);overflow:hidden;background:var(--fill-tertiary);cursor:zoom-in;transition:transform 480ms var(--spring)}
+.variant:hover{transform:translateY(-3px)}
+.variant .pic{aspect-ratio:9/16;background:var(--fill-quaternary)}
+.variant .pic img{width:100%;height:100%;object-fit:cover}
+.variant .tag{position:absolute;top:12px;left:12px;height:28px;padding:0 12px;border-radius:var(--radius-pill);display:flex;align-items:center;font:600 12px/16px var(--font-text);background:color-mix(in srgb,#fff 80%,transparent);color:#1D1D1F;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%)}
+.variant .pick{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:color-mix(in srgb,#fff 80%,transparent);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);color:#1D1D1F;transition:transform 420ms var(--spring),background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.variant .pick:active{transform:scale(.85)}
+.variant.picked .pick{background:var(--accent);color:#fff}
+.variant.picked .pick svg{animation:pop 480ms var(--spring)}
+@keyframes pop{0%{transform:scale(.4)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.variant .cap{padding:12px 14px 14px;color:var(--text-secondary);font:400 14px/20px var(--font-text)}
+.variant .cap b{color:var(--text);font-weight:600}
+.warn{display:inline-flex;align-items:center;gap:6px;color:var(--text-tertiary);font:400 12px/16px var(--font-text);margin-top:6px}
+
+/* Auswahl-Leiste */
+.tray{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);z-index:40;background:color-mix(in srgb,var(--fill) 80%,transparent);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid color-mix(in srgb,var(--separator) 60%,transparent);border-radius:var(--radius-pill);height:52px;padding:4px 4px 4px 20px;display:flex;align-items:center;gap:16px;transition:transform 520ms var(--spring);white-space:nowrap}
+.tray.show{transform:translate(-50%,0)}
+.tray .cnt{font:600 17px/21px var(--font-display);min-width:1.2em;text-align:center;display:inline-block;transition:transform 420ms var(--spring)}
+.tray .cnt.bump{transform:scale(1.4)}
+.btn{height:44px;padding:0 20px;border-radius:var(--radius-pill);border:0;background:var(--accent);color:#fff;font:400 14px/20px var(--font-text);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background var(--dur-hover) linear,transform 420ms var(--spring)}
+.btn:hover{background:#0077ED}.btn:active{transform:scale(.96)}
+.btn.ghost{background:transparent;color:var(--link)}
+
+/* Video */
+.reels{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;max-width:720px}
+.clips{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+@media (max-width:734px){.reels{grid-template-columns:1fr 1fr;gap:12px}.clips{grid-template-columns:1fr 1fr}}
+.reel,.clip{border-radius:var(--radius-card);overflow:hidden;background:var(--fill-tertiary)}
+.reel video,.clip video{width:100%;aspect-ratio:9/16;display:block;background:#000;object-fit:cover}
+.reel .cap,.clip .cap{padding:12px 14px 14px;color:var(--text-secondary);font:400 14px/20px var(--font-text)}
+.reel .cap b{color:var(--text);font-weight:600}
+
+/* Shotliste */
+.table{margin-top:40px;border-radius:var(--radius-card);overflow:hidden;background:var(--fill-tertiary)}
+.row{display:grid;grid-template-columns:56px 1.2fr 2fr 1.6fr 80px;gap:16px;padding:18px 24px;border-top:1px solid var(--separator);align-items:start;transition:background var(--dur-hover) linear}
+.row:first-child{border-top:0;color:var(--text-tertiary);font:600 12px/16px var(--font-text);letter-spacing:.06em;text-transform:uppercase}
+.row:not(:first-child):hover{background:var(--fill-quaternary)}
+.row b{font-weight:600}
+.row .d{font:600 17px/21px var(--font-display);color:var(--text)}
+@media (max-width:734px){.row{grid-template-columns:40px 1fr;gap:6px 12px}.row > :nth-child(3),.row > :nth-child(4){grid-column:2}.row > :nth-child(5){grid-column:2}.row:first-child > :nth-child(n+3){display:none}}
+
+/* Regeln */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media (max-width:734px){.rules{grid-template-columns:1fr}}
+.rule{background:var(--fill-tertiary);border-radius:var(--radius-card);padding:28px 24px}
+.rule .ico{width:44px;height:44px;border-radius:12px;background:var(--fill);display:grid;place-items:center;margin-bottom:16px;color:var(--text)}
+.rule h3{font:600 19px/23px var(--font-display);letter-spacing:.012em}
+.rule p{color:var(--text-secondary);margin:.5em 0 0}
+
+/* Referenzen */
+.refs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px}
+@media (max-width:1068px){.refs{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:734px){.refs{grid-template-columns:1fr 1fr}}
+.ref{border-radius:var(--radius-box);overflow:hidden;background:var(--fill-tertiary);cursor:zoom-in;transition:transform 480ms var(--spring)}
+.ref:hover{transform:translateY(-3px)}
+.ref .pic{aspect-ratio:3/4}
+.ref .pic img{width:100%;height:100%;object-fit:cover}
+.ref .cap{padding:10px 12px;color:var(--text-secondary);font:400 12px/16px var(--font-text)}
+.product{margin-top:16px;border-radius:var(--radius-card);overflow:hidden;background:var(--fill-tertiary)}
+.product img{width:100%}
+.product .cap{padding:12px 16px;color:var(--text-secondary);font:400 14px/20px var(--font-text)}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.86);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease)}
+.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-height:92vh;max-width:92vw;border-radius:var(--radius-card);transform:scale(.94);transition:transform 520ms var(--spring)}
+.lb.open img{transform:scale(1)}
+.lb .x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb .cap{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#F5F5F7;font:400 14px/20px var(--font-text);background:rgba(0,0,0,.4);padding:8px 16px;border-radius:var(--radius-pill);white-space:nowrap}
+
+/* Auftritt beim Scrollen */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 640ms var(--ease-out),transform 640ms var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+footer{padding:48px 0 64px;color:var(--text-tertiary);border-top:1px solid var(--separator)}
+.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);opacity:0;background:var(--text);color:var(--fill);padding:10px 18px;border-radius:var(--radius-pill);font:400 14px/20px var(--font-text);transition:all 420ms var(--spring);z-index:45;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+  <span class="brand">Anna & Paul · Sommer-Reel</span>
+  <ul>
+    <li><a href="#idee">Idee</a></li>
+    <li><a href="#storyline">Storyline</a></li>
+    <li><a href="#bilder">Bilder</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#shotliste">Shotliste</a></li>
+    <li><a href="#regeln">Regeln</a></li>
+    <li><a href="#referenzen">Referenzen</a></li>
+  </ul>
+  <button class="theme" id="theme" aria-label="Hell oder dunkel">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+</div></nav>
+
+<header class="hero wrap">
+  <p class="label">Projektmappe · 17. Oktober 2026</p>
+  <h1 class="t-56">Ein Sommertag. Drei Kinder. Ein Paar Schuhe.</h1>
+  <p class="lead t-21">Ein Reel für Anna & Paul. Die Kamera bleibt bei den Schuhen, die Gesichter bleiben draußen, die Wiese macht den Rest.</p>
+  <div class="hero-img"><img src="moods/01a_lupe_closeup.jpg" alt="Lupe über den Löwenschuhen in der Wiese"></div>
+  <p class="hero-caption t-14">Moodbild 1A, Auftakt. Erzeugt mit Nano Banana Pro aus dem Produkt-Screenshot und der Lupen-Referenz.</p>
+</header>
+
+<section id="idee" class="wrap">
+  <p class="label">Die Idee</p>
+  <h2 class="t-48">Bequem durch den Tag.</h2>
+  <p class="lead t-21">Kleine Kinder genießen einen Sommertag draußen. Sie entdecken, pflücken, rennen. Die Schuhe von Anna & Paul sind dabei, ohne dass jemand sie erklärt. Man sieht nur, dass sie den ganzen Tag mitmachen.</p>
+  <div class="facts reveal">
+    <div class="fact"><b>9:16</b><span>Hochformat für Reels</span></div>
+    <div class="fact"><b data-count="18">0</b><span>Sekunden, Ziel 15 bis 20</span></div>
+    <div class="fact"><b>4</b><span>Bilder, eine Wiese</span></div>
+    <div class="fact"><b>0</b><span>Gesichter im Bild</span></div>
+  </div>
+</section>
+
+<section id="storyline" class="wrap quiet">
+  <div class="story-head">
+    <div>
+      <p class="label">Storyline</p>
+      <h2 class="t-48">Zwei Reihenfolgen.</h2>
+    </div>
+    <div class="seg" id="segStory"><div class="thumb"></div><button data-v="A" class="on">A · Rennen am Ende</button><button data-v="B">B · Schuhe am Ende</button></div>
+  </div>
+  <p class="story-note t-17" id="storyNote">Variante A endet auf Bewegung. Das Reel läuft auf die drei rennenden Kinder hinaus, das Lebensgefühl ist das letzte Bild.</p>
+  <div class="scenes" id="scenes">
+    <div class="scene" data-key="lupe" data-img="moods/01a_lupe_closeup.jpg"><div class="pic"><img src="moods/01a_lupe_closeup.jpg" alt=""></div><div class="meta"><span class="num">BILD 1</span><h3>Unter der Lupe</h3><p>Ein Junge nimmt die Schuhe in der Wiese mit der Lupe unter die Lupe.</p></div></div>
+    <div class="scene" data-key="pfluecken" data-img="moods/02a_pfluecken_vogelperspektive.jpg"><div class="pic"><img src="moods/02a_pfluecken_vogelperspektive.jpg" alt=""></div><div class="meta"><span class="num">BILD 2</span><h3>Blumen pflücken</h3><p>Ein Mädchen in Anna & Paul Schuhen pflückt auf derselben Wiese.</p></div></div>
+    <div class="scene" data-key="socken" data-img="moods/03a_socken_blueten_stehend.jpg"><div class="pic"><img src="moods/03a_socken_blueten_stehend.jpg" alt=""></div><div class="meta"><span class="num">BILD 3</span><h3>Socken voller Blüten</h3><p>Die Beine eines Jungen, die Socken gefüllt mit den gepflückten Blüten.</p></div></div>
+    <div class="scene" data-key="rennen" data-img="moods/04a_rennen_von_hinten.jpg"><div class="pic"><img src="moods/04a_rennen_von_hinten.jpg" alt=""></div><div class="meta"><span class="num">BILD 4</span><h3>Alle drei rennen</h3><p>Die Kinder rennen zusammen über die Wiese, von hinten.</p></div></div>
+  </div>
+</section>
+
+<section id="bilder" class="wrap">
+  <p class="label">Moodbilder</p>
+  <h2 class="t-48">Jedes Bild in zwei Fassungen.</h2>
+  <p class="lead t-21">Tippe auf den Kreis, um eine Fassung auszuwählen. Die Auswahl bleibt gespeichert und lässt sich unten als Liste kopieren. Tippe auf das Bild für die große Ansicht.</p>
+
+  <div class="chapter reveal" style="margin-top:64px">
+    <div class="text">
+      <p class="label">Bild 1 · Auftakt</p>
+      <h3 class="t-32">Unter der Lupe.</h3>
+      <p class="t-17">Ein kleiner Junge liegt bäuchlings in der Wiese, übersät mit Gänseblümchen. In der Mitte stehen die Schuhe von Anna & Paul. Er betrachtet sie mit der Lupe ganz genau, das Löwengesicht wird groß. Sein Gesicht bleibt außerhalb des Bildes.</p>
+      <p class="cam t-14"><b>Kamera</b> Close-up auf Bodenhöhe, statisch oder minimale Fahrt nach vorn, Blende offen. 3 bis 4 Sekunden.</p>
+    </div>
+    <div class="variants">
+      <div class="variant" data-id="1A" data-cap="Bild 1A · Close-up, Lupe über den Schuhen"><div class="pic"><img src="moods/01a_lupe_closeup.jpg" alt=""></div><span class="tag">1A</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Close-up</b> Nur Hand, Lupe und Schuhe. Das Löwengesicht in der Linse vergrößert.</div></div>
+      <div class="variant" data-id="1B" data-cap="Bild 1B · Rückansicht, Junge hockt vor den Schuhen"><div class="pic"><img src="moods/01b_lupe_rueckansicht.jpg" alt=""></div><span class="tag">1B</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Rückansicht</b> Der Junge hockt vor den Schuhen, Gesicht nur im Anschnitt.<div class="warn">Hinweis: Gesicht im Profil erkennbar, beim Dreh tiefer ansetzen.</div></div></div>
+    </div>
+  </div>
+
+  <div class="chapter reveal">
+    <div class="text">
+      <p class="label">Bild 2 · Pflücken</p>
+      <h3 class="t-32">Blumen pflücken.</h3>
+      <p class="t-17">Ein kleines Mädchen hockt auf derselben Wiese und pflückt Gänseblümchen. Sie trägt ebenfalls Schuhe von Anna & Paul. Der gesenkte Kopf und die Haare verdecken das Gesicht.</p>
+      <p class="cam t-14"><b>Kamera</b> Halbnah von oben, leichter Schwenk nach unten zu den Schuhen. 3 Sekunden.</p>
+    </div>
+    <div class="variants">
+      <div class="variant" data-id="2A" data-cap="Bild 2A · Vogelperspektive, Mädchen pflückt"><div class="pic"><img src="moods/02a_pfluecken_vogelperspektive.jpg" alt=""></div><span class="tag">2A</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Von oben</b> Locken verdecken das Gesicht, die Schuhe stehen klar im Gras.</div></div>
+      <div class="variant" data-id="2B" data-cap="Bild 2B · Hände und Füße, ab den Knien"><div class="pic"><img src="moods/02b_pfluecken_haende_fuesse.jpg" alt=""></div><span class="tag">2B</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Hände und Füße</b> Ab den Knien, die Hand pflückt direkt neben dem Schuh.<div class="warn">Hinweis: Armhaltung im KI-Bild unsauber, nur als Bildidee lesen.</div></div></div>
+    </div>
+  </div>
+
+  <div class="chapter reveal">
+    <div class="text">
+      <p class="label">Bild 3 · Stillleben</p>
+      <h3 class="t-32">Socken voller Blüten.</h3>
+      <p class="t-17">Die Beine eines kleinen Jungen, frontal, ab den Knien. Seine Socken sind gefüllt mit den Blüten, die das Mädchen hineingesteckt hat. An den Füßen die Schuhe von Anna & Paul. Das ist das Bild, das man sich merkt.</p>
+      <p class="cam t-14"><b>Kamera</b> Close-up frontal, statisch, das Kind steht still. 3 bis 4 Sekunden. In Storyline B das Schlussbild.</p>
+    </div>
+    <div class="variants">
+      <div class="variant" data-id="3A" data-cap="Bild 3A · Stehend, Socken voller Blüten"><div class="pic"><img src="moods/03a_socken_blueten_stehend.jpg" alt=""></div><span class="tag">3A</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Stehend</b> Frontal wie die Referenz, Löwenschuhe und Blüten im selben Bild.</div></div>
+      <div class="variant" data-id="3B" data-cap="Bild 3B · Sitzend, zweite Hand steckt eine Blüte hinein"><div class="pic"><img src="moods/03b_socken_blueten_sitzend.jpg" alt=""></div><span class="tag">3B</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Sitzend</b> Das Mädchen steckt gerade noch eine Blüte dazu, Abendlicht.</div></div>
+    </div>
+  </div>
+
+  <div class="chapter reveal">
+    <div class="text">
+      <p class="label">Bild 4 · Bewegung</p>
+      <h3 class="t-32">Alle drei rennen.</h3>
+      <p class="t-17">Alle drei Kinder rennen zusammen über die Wiese, von hinten gesehen, in Anna & Paul Schuhen. Bei Kleinkindern heißt Rennen Tapsen und Stolpern, das ist der Charme.</p>
+      <p class="cam t-14"><b>Kamera</b> Totale von hinten oder bodennah mitlaufend, Bewegungsunschärfe erlaubt. 4 bis 5 Sekunden. In Storyline A das Schlussbild.</p>
+    </div>
+    <div class="variants">
+      <div class="variant" data-id="4A" data-cap="Bild 4A · Von hinten, drei Kinder"><div class="pic"><img src="moods/04a_rennen_von_hinten.jpg" alt=""></div><span class="tag">4A</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Von hinten</b> Drei Kinder, Arme ausgebreitet, die Schuhe blitzen beim Laufen auf.</div></div>
+      <div class="variant" data-id="4B" data-cap="Bild 4B · Bodennah, nur Füße"><div class="pic"><img src="moods/04b_rennen_bodennah.jpg" alt="" onerror="this.closest('.variant').classList.add('missing')"></div><span class="tag">4B</span><button class="pick" aria-label="Auswählen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></button><div class="cap"><b>Bodennah</b> Nur Füße und Schuhe, die Wiese zieht vorbei.</div></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="video" class="wrap">
+  <p class="label">Bewegt</p>
+  <h2 class="t-48">Das Reel als Vorschau.</h2>
+  <p class="lead t-21">Die vier A-Fassungen mit Seedance 2.0 animiert, 720p im Sparmodus, je fünf Sekunden ohne Ton. Zwei Schnittfassungen, einmal endet das Reel auf dem Rennen, einmal auf den Socken.</p>
+  <div class="reels reveal">
+    <div class="reel"><video controls playsinline muted preload="metadata" src="video/Sommer-Reel_Variante_A_720p.mp4"></video><div class="cap"><b>Variante A</b> Lupe, Pflücken, Socken, Rennen. 20 Sekunden.</div></div>
+    <div class="reel"><video controls playsinline muted preload="metadata" src="video/Sommer-Reel_Variante_B_720p.mp4"></video><div class="cap"><b>Variante B</b> Lupe, Pflücken, Rennen, Socken. 20 Sekunden.</div></div>
+  </div>
+  <p class="label" style="margin-top:56px">Die vier Clips einzeln</p>
+  <div class="clips reveal">
+    <div class="clip"><video controls playsinline muted preload="metadata" src="video/clip_01_lupe.mp4"></video><div class="cap">1 · Lupe</div></div>
+    <div class="clip"><video controls playsinline muted preload="metadata" src="video/clip_02_pfluecken.mp4"></video><div class="cap">2 · Pflücken</div></div>
+    <div class="clip"><video controls playsinline muted preload="metadata" src="video/clip_03_socken.mp4"></video><div class="cap">3 · Socken</div></div>
+    <div class="clip"><video controls playsinline muted preload="metadata" src="video/clip_04_rennen.mp4"></video><div class="cap">4 · Rennen</div></div>
+  </div>
+  <p class="lead t-14" style="margin-top:24px">Vorschauqualität. Für die Abgabe würden die freigegebenen Clips in 1080p neu gerechnet, das kostet rund das Doppelte je Clip.</p>
+</section>
+
+<section id="shotliste" class="wrap quiet">
+  <p class="label">Shotliste</p>
+  <h2 class="t-48">Fünf Einstellungen.</h2>
+  <div class="table reveal">
+    <div class="row"><span>Nr</span><span>Einstellung</span><span>Inhalt</span><span>Kamera</span><span>Dauer</span></div>
+    <div class="row"><span class="d">1</span><span><b>Close-up</b>, Bodenhöhe</span><span>Hand mit Lupe über den Schuhen, die Lupe vergrößert das Löwengesicht</span><span>Statisch oder minimale Fahrt nach vorn, Blende offen</span><span class="d">3–4 s</span></div>
+    <div class="row"><span class="d">2</span><span><b>Halbnah</b> von oben</span><span>Mädchen hockt, pflückt Gänseblümchen, Schuhe sichtbar im Gras</span><span>Leichter Schwenk nach unten zu den Schuhen</span><span class="d">3 s</span></div>
+    <div class="row"><span class="d">3</span><span><b>Close-up</b> frontal</span><span>Beine ab den Knien, Socken voller Blüten, Schuhe</span><span>Statisch, Kind steht still</span><span class="d">3–4 s</span></div>
+    <div class="row"><span class="d">4</span><span><b>Totale</b> von hinten, bodennah</span><span>Drei Kinder rennen durch die Wiese</span><span>Handgeführt, mit dem Kind mitlaufend, Unschärfe erlaubt</span><span class="d">4–5 s</span></div>
+    <div class="row"><span class="d">5</span><span><b>Endtafel</b></span><span>Logo Anna & Paul auf dem letzten Bild</span><span>Standbild</span><span class="d">2 s</span></div>
+  </div>
+</section>
+
+<section id="regeln" class="wrap">
+  <p class="label">Regeln für den Dreh</p>
+  <h2 class="t-48">Nah, tief, warm.</h2>
+  <div class="rules reveal">
+    <div class="rule"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.1A10 10 0 0121 12a10.4 10.4 0 01-2.1 3.1M6.1 6.1A10.6 10.6 0 003 12s3 7 9 7a8.8 8.8 0 004.3-1.1"/></svg></div><h3>Gesichter vermeiden</h3><p>Anschnitt, Rückansicht, gesenkter Kopf, Haare. Wenn ein Gesicht nötig ist, dann nur im Profil und unscharf.</p></div>
+    <div class="rule"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 20h18M6 20V9l6-5 6 5v11"/></svg></div><h3>Kamera auf Kinderhöhe</h3><p>Immer auf Höhe der Schuhe oder tiefer. Die Wiese darf im Vordergrund weich werden, die Schuhe bleiben scharf.</p></div>
+    <div class="rule"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg></div><h3>Nachmittagslicht</h3><p>Sonne tief, kein Mittagslicht. Farben der Kleidung in Gelb, Lila und Rot gegen das Grün. Die Schuhe in Braun und Creme sind die ruhige Farbe.</p></div>
+  </div>
+  <p class="lead t-17" style="margin-top:40px">Hinweis zu den Schuhen: Der Screenshot zeigt weiche Lederschuhe mit Löwe und Giraffe sowie einen Filzschuh, also Krabbel- und Lauflernschuhe für etwa ein bis drei Jahre. Die Kinder im Reel sollten deshalb Kleinkinder sein. Die Moodbilder zeigen durchgehend den braunen Löwenschuh, weil er das wiedererkennbarste Motiv ist.</p>
+</section>
+
+<section id="referenzen" class="wrap quiet">
+  <p class="label">Referenzen</p>
+  <h2 class="t-48">Woher die Bilder kommen.</h2>
+  <div class="refs reveal">
+    <div class="ref" data-cap="Referenz 1 · Junge mit Lupe"><div class="pic"><img src="referenzen/ref1_junge_lupe.jpg" alt=""></div><div class="cap">Bild 1, Lupe</div></div>
+    <div class="ref" data-cap="Referenz 2 · Mädchen pflückt Blumen"><div class="pic"><img src="referenzen/ref2_maedchen_blumen_pfluecken.jpg" alt=""></div><div class="cap">Bild 2, Pflücken</div></div>
+    <div class="ref" data-cap="Referenz 3 · Socken mit Blüten"><div class="pic"><img src="referenzen/ref3_socken_mit_blueten.jpg" alt=""></div><div class="cap">Bild 3, Socken</div></div>
+    <div class="ref" data-cap="Referenz 4 · Kinder rennen übers Feld"><div class="pic"><img src="referenzen/ref4_kinder_rennen_feld.jpg" alt=""></div><div class="cap">Bild 4, Rennen</div></div>
+    <div class="ref" data-cap="Referenz 5 · Mädchen liest in der Wiese"><div class="pic"><img src="referenzen/ref5_maedchen_wiese_lesen.jpg" alt=""></div><div class="cap">Stimmung, Wiese</div></div>
+  </div>
+  <div class="product reveal"><img src="referenzen/produkt_schuhe_screenshot.jpg" alt="Schuhe von Anna & Paul"><div class="cap">Produkt-Screenshot, in jedem Moodbild als Referenz mitgegeben. Giraffe, Löwe und Filzschuh.</div></div>
+</section>
+
+<footer class="wrap">
+  <p class="t-12">Moodbilder erzeugt mit Higgsfield, Nano Banana Pro, 9:16, 2k. Zwei Credits je Bild, 16 Credits gesamt. Die Bilder sind Stimmungsvorlagen für den Dreh, keine Filmbilder. Referenzfotos sind Fremdmaterial und nur zur internen Orientierung.</p>
+</footer>
+
+<div class="tray" id="tray"><span class="t-14">Auswahl</span><span class="cnt" id="cnt">0</span><button class="btn" id="copy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>Liste kopieren</button><button class="btn ghost" id="clear">Leeren</button></div>
+<div class="toast" id="toast">Kopiert</div>
+<div class="lb" id="lb"><button class="x" aria-label="Schließen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><img src="" alt=""><div class="cap"></div></div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  // Hell oder dunkel
+  const root=document.documentElement;
+  const saved=ls.get('ap-theme'); if(saved) root.dataset.theme=saved;
+  $('#theme').addEventListener('click',()=>{
+    const dark=matchMedia('(prefers-color-scheme: dark)').matches;
+    const cur=root.dataset.theme||(dark?'dark':'light');
+    const next=cur==='dark'?'light':'dark';
+    root.dataset.theme=next; ls.set('ap-theme',next);
+  });
+
+  // Segmentschalter
+  function seg(el,onChange){
+    const thumb=el.querySelector('.thumb'), btns=[...el.querySelectorAll('button')];
+    function place(b,anim=true){ if(!anim) thumb.style.transition='none'; thumb.style.width=b.offsetWidth+'px'; thumb.style.transform='translateX('+(b.offsetLeft-3)+'px)'; if(!anim) requestAnimationFrame(()=>thumb.style.transition=''); }
+    btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('on'));b.classList.add('on');place(b);onChange(b.dataset.v)}));
+    place(el.querySelector('.on'),false); addEventListener('resize',()=>place(el.querySelector('.on'),false));
+  }
+  const notes={A:'Variante A endet auf Bewegung. Das Reel läuft auf die drei rennenden Kinder hinaus, das Lebensgefühl ist das letzte Bild.',B:'Variante B endet auf dem Produkt. Nach dem Rennen kommt das Stillleben mit den Socken voller Blüten, die Schuhe sind das letzte, was man sieht.'};
+  const order={A:['lupe','pfluecken','socken','rennen'],B:['lupe','pfluecken','rennen','socken']};
+  const scenes=$('#scenes'), note=$('#storyNote');
+  function applyOrder(v){
+    const first=new Map($$('.scene').map(s=>[s,s.getBoundingClientRect()]));
+    order[v].forEach((k,i)=>{const s=scenes.querySelector('[data-key="'+k+'"]');scenes.appendChild(s);const n=s.querySelector('.num');n.textContent='BILD '+(i+1);n.classList.remove('bump');void n.offsetWidth;n.classList.add('bump');setTimeout(()=>n.classList.remove('bump'),500)});
+    $$('.scene').forEach(s=>{const a=first.get(s),b=s.getBoundingClientRect();const dx=a.left-b.left,dy=a.top-b.top;if(!dx&&!dy)return;s.style.transition='none';s.style.transform='translate('+dx+'px,'+dy+'px)';requestAnimationFrame(()=>{s.style.transition='transform 560ms cubic-bezier(.34,1.56,.64,1)';s.style.transform='';});});
+    note.style.opacity=0; setTimeout(()=>{note.textContent=notes[v];note.style.opacity=1},160);
+  }
+  seg($('#segStory'),applyOrder);
+
+  // Szene tippen, springt zum Kapitel
+  const anchors={lupe:1,pfluecken:2,socken:3,rennen:4};
+  $$('.scene').forEach(s=>s.addEventListener('click',()=>{const ch=$$('#bilder .chapter')[anchors[s.dataset.key]-1];ch.scrollIntoView({behavior:'smooth',block:'start'});}));
+
+  // Auswahl
+  const tray=$('#tray'), cnt=$('#cnt');
+  let picks=new Set(JSON.parse(ls.get('ap-picks')||'[]'));
+  function render(){
+    $$('.variant').forEach(v=>v.classList.toggle('picked',picks.has(v.dataset.id)));
+    cnt.textContent=picks.size; cnt.classList.remove('bump'); void cnt.offsetWidth; cnt.classList.add('bump');
+    tray.classList.toggle('show',picks.size>0); ls.set('ap-picks',JSON.stringify([...picks]));
+  }
+  $$('.variant .pick').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const id=b.closest('.variant').dataset.id;picks.has(id)?picks.delete(id):picks.add(id);if(navigator.vibrate)navigator.vibrate(8);render();}));
+  $('#clear').addEventListener('click',()=>{picks.clear();render();});
+  $('#copy').addEventListener('click',async()=>{
+    const lines=[...picks].sort().map(id=>{const v=document.querySelector('.variant[data-id="'+id+'"]');return id+'  '+v.dataset.cap.replace(/^Bild \S+ · /,'')});
+    const txt='Anna & Paul Sommer-Reel, Auswahl Moodbilder\n'+lines.join('\n');
+    try{await navigator.clipboard.writeText(txt)}catch(e){}
+    const t=$('#toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1400);
+  });
+  render();
+
+  // Lightbox
+  const lb=$('#lb'), lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.cap');
+  function open(src,cap){lbImg.src=src;lbCap.textContent=cap||'';lb.classList.add('open');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');document.body.style.overflow=''}
+  $$('.variant').forEach(v=>v.addEventListener('click',()=>open(v.querySelector('img').src,v.dataset.cap)));
+  $$('.ref').forEach(v=>v.addEventListener('click',()=>open(v.querySelector('img').src,v.dataset.cap)));
+  $('.hero-img').addEventListener('click',()=>open('moods/01a_lupe_closeup.jpg','Bild 1A · Auftakt'));
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.closest('.x'))close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+  // Auftritt beim Scrollen und Zahl, die hochzählt
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);en.target.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/900),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e);if(p<1)requestAnimationFrame(f)})(t0)})}}),{threshold:.05});
+  $$('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
